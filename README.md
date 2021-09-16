@@ -36,7 +36,7 @@ bin/pulsar-admin schemas upload energy -f energy-schema.json
 
 bin/pulsar-admin schemas get energy
 
-
+bin/pulsar-client consume energy -s "energy-checker"
 
 ```
 
