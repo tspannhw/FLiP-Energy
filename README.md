@@ -80,6 +80,13 @@ docker exec 03ecc2709715 solr config -c energy -p 8983 -action set-user-property
 
 ```
 
+# Consume Pulsar Messages
+
+```
+
+bin/pulsar-client consume energy -s "energy-checker"
+
+```
 
 # Reference
 
