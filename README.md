@@ -25,21 +25,26 @@ docker exec 03ecc2709715 solr delete -c energy
 
 docker exec 03ecc2709715 solr create -c energy
 
-# build schema
-curl http://localhost:8983/solr/films/schema \\
--X POST -H 'Content-type:application/json' --data-binary '{
-    "add-field" : {
-        "name":"name",
-        "type":"text_general",
-        "multiValued":false,
-        "stored":true
-    },
-    "add-field" : {
-        "name":"initial_release_date",
-        "type":"tdate",
-        "stored":true
-    }
-}'
+docker exec 03ecc2709715 solr delete -c docs
+
+docker exec 03ecc2709715 solr create -c docs
+
+
+# example build schema
+# curl http://localhost:8983/solr/films/schema \\
+#-X POST -H 'Content-type:application/json' --data-binary '{
+#    "add-field" : {
+#        "name":"name",
+#        "type":"text_general",
+#        "multiValued":false,
+#        "stored":true
+#    },
+#    "add-field" : {
+#        "name":"initial_release_date",
+#        "type":"tdate",
+#        "stored":true
+#    }
+#}'
 
 
 bin/pulsar-admin topics list public/default
