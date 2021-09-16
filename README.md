@@ -34,3 +34,7 @@ curl "http://localhost:8983/solr/energy/select?q=*"
 ```
 
 
+# Reference
+
+* https://toolslick.com/generation/metadata/avro-schema-from-json
+
