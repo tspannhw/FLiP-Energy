@@ -29,6 +29,8 @@ bin/pulsar-admin sinks create --tenant public --namespace default --name solr-si
 bin/pulsar-admin sinks get --tenant public --namespace default --name solr-sink-energy
 bin/pulsar-admin sinks status --tenant public --namespace default --name solr-sink-energy
 
+curl "http://localhost:8983/solr/energy/select?q=*"
+
 ```
 
 
