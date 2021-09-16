@@ -1,0 +1,4 @@
+configs:
+  solrUrl: "http://localhost:8983/solr"
+  solrMode: "Standalone"
+  solrCollection: "energy"
