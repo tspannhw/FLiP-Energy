@@ -31,6 +31,9 @@ bin/pulsar-admin sinks status --tenant public --namespace default --name solr-si
 
 curl "http://localhost:8983/solr/energy/select?q=*"
 
+
+bin/pulsar-admin schemas upload energy -f energy-schema.json
+
 ```
 
 
