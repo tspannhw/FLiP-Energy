@@ -21,6 +21,8 @@ bin/pulsar-daemon start websocket
 
 ```
 
+docker exec 03ecc2709715 solr delete -c energy
+
 docker exec 03ecc2709715 solr create -c energy
 
 # build schema
