@@ -41,6 +41,8 @@ curl http://localhost:8983/solr/films/schema \\
     }
 }'
 
+bin/pulsar-admin schemas delete energy
+
 bin/pulsar-admin schemas upload energy -f energy-schema.json
 
 bin/pulsar-admin schemas get energy
