@@ -41,6 +41,19 @@ curl http://localhost:8983/solr/films/schema \\
     }
 }'
 
+
+bin/pulsar-admin topics list public/default
+
+bin/pulsar-admin topics subscriptions persistent://public/default/energy
+  
+bin/pulsar-admin topics unsubscribe --subscription energy-checker persistent://public/default/energy
+bin/pulsar-admin topics unsubscribe --subscription nifi-pulsar-energy persistent://public/default/energy
+  
+bin/pulsar-admin topics unload persistent://public/default/energy
+
+bin/pulsar-admin topics delete persistent://public/default/energy
+bin/pulsar-admin topics delete persistent://public/default/energy-partition-0
+
 bin/pulsar-admin schemas delete energy
 
 bin/pulsar-admin schemas upload energy -f energy-schema.json
