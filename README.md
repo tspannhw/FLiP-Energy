@@ -38,3 +38,4 @@ curl "http://localhost:8983/solr/energy/select?q=*"
 
 * https://toolslick.com/generation/metadata/avro-schema-from-json
 * https://pulsar.apache.org/docs/en/schema-manage/
+* https://github.com/tspannhw/CloudDemo2021/blob/main/schemas/energy.avsc
