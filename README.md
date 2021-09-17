@@ -29,6 +29,9 @@ docker exec 03ecc2709715 solr delete -c docs
 
 docker exec 03ecc2709715 solr create -c docs
 
+docker exec 03ecc2709715 solr delete -c jetson
+
+docker exec 03ecc2709715 solr create -c jetson
 
 # example build schema
 # curl http://localhost:8983/solr/films/schema \\
@@ -76,6 +79,16 @@ bin/pulsar-admin sinks status --tenant public --namespace default --name solr-si
 curl "http://localhost:8983/solr/energy/select?q=*"
 
 docker exec 03ecc2709715 solr config -c energy -p 8983 -action set-user-property -property update.autoCreateFields -value false
+
+
+java -jar target/IoTProducer-1.0-jar-with-dependencies.jar --serviceUrl pulsar://localhost:6650 --topic 'iotjetsonjson' --message
+
+bin/pulsar-admin sink stop --name solr-sink-jetson --namespace default --tenant public
+bin/pulsar-admin sinks delete --tenant public --namespace default --name solr-sink-jetson
+bin/pulsar-admin sinks create --tenant public --namespace default --name solr-sink-jetson --sink-type solr --sink-config-file conf/solr-sink-jetson.yml --inputs iotjetsonjson
+bin/pulsar-admin sinks get --tenant public --namespace default --name solr-sink-jetson
+bin/pulsar-admin sinks status --tenant public --namespace default --name solr-sink-jetson
+
 
 
 ```
